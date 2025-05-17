@@ -69,7 +69,6 @@ public class Calculator {
         int result = checkExpression(expression);
         if (result == 0) {
             isError = true;
-            errorText = "Попробуйте ввести выражение еще раз.";
             return Float.MIN_VALUE;
         } else if (result == 1) {
             expression = addSpacesToExpression(expression);
@@ -77,7 +76,6 @@ public class Calculator {
         String[] parsedExpression = parseExpression(expression);
         if (parsedExpression[0].equals("ERROR")) {
             isError = true;
-            errorText = "Попробуйте ввести выражение еще раз.";
             return Float.MIN_VALUE;
         }
         float num1, num2;

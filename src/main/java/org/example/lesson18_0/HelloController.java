@@ -7,24 +7,21 @@ import javafx.scene.paint.Color;
 
 public class HelloController {
 
-    Calculator calculator = new Calculator();
+    private Calculator calculator = new Calculator();
     @FXML
     private Label resultLabel;
-
-    @FXML
-    private Label errorLabel;
-
     @FXML
     private TextField userInput;
 
     @FXML
     private void evaluate() {
-        errorLabel.setText("");
         float num1 = calculator.evaluateResult(userInput.getText());
-        resultLabel.setText(String.valueOf(num1));
         if (calculator.getIsError()) {
-            errorLabel.setText(calculator.getErrorText());
-            errorLabel.setTextFill(Color.RED);
+            resultLabel.setText(calculator.getErrorText());
+            resultLabel.setTextFill(Color.RED);
+        } else {
+            resultLabel.setText(String.valueOf(num1));
+            resultLabel.setTextFill(Color.BLACK);
         }
     }
 }
